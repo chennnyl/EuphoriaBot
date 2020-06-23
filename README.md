@@ -109,6 +109,9 @@ The plural system works by creating a webhook for the channel in which a member 
 
 ![!plural calls](https://imgur.com/hrWpz7o.png)
 
+![Making a webhook query](https://imgur.com/4Aq4chW)
+The top message is deleted once the bot sends its message, but is included for illustrative purposes.
+
 <a name="admin"/>
 
 ### Administrative features
