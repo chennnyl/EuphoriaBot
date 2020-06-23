@@ -106,7 +106,8 @@ This section of the guide is optional -- running the bot as a background service
 
 `$ sudo nano /etc/systemd/system/dbot.service`
 And paste in the following code:
-`[Unit]
+```
+[Unit]
 Description=EuphoriaBot Discord bot
 After=multi-user.target
 [Service]
@@ -119,7 +120,8 @@ Restart=always
 RestartSec=15
 
 [Install]
-WantedBy=multi-user.target`
+WantedBy=multi-user.target
+```
 Make sure you replace BOT_DIRECTORY and YOUR_USERNAME with the directory where the bot files are contained and your username, respectively. Save the file, and execute the following two commands:
 `$ sudo systemctl enable dbot.service`
 `$ sudo systemctl start dbot.service`
