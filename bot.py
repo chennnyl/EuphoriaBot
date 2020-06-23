@@ -68,7 +68,7 @@ async def try_multiple_pronouns(ctx, pronouns, name = ""):
 		with open("usernames.json") as usernames: #extract names by ID from usernames.json
 			userdat = json.load(usernames)
 			if str(ctx.author.id) in userdat:
-				nick = userdat[ctx.author.id].split(" ")
+				nick = userdat[str(ctx.author.id)].split(" ")
 		if nick == "":
 			nick = [ctx.author.display_name]
         	
