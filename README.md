@@ -3,10 +3,62 @@
 Welcome to **EuphoriaBot**! Outlined below are the procedures for installation/maintaining a clone of the bot, as well as the features the bot has.
 
 ##### Table of Contents
-1. [Setup](#setup)
+1. [Features](#features)
+    + [General features](#general)
+        + [Trying names and pronouns](#try)
+            + [User-set names](#names)
+        + [Serving categorized resources](#resources)
+        + [Allow suggestions](#suggestions)
+        + [Plural systems](#plural)
+    + [Administrative features](#admin)
+        + [Purge channels](#purge)
+        + [Give users roles via reactable messages](#roles)
+        
+2. [Setup](#setup)
     + [A quick note](#aquicknote)
     + [Setting up a Discord Application](#discordapp)
     + [Setting up your bot's environment](#envsetup)
+    + [Setting up bot as a background service (Any Linux server using `systemd`)](#backserv)
+
+<a name="features"/>
+
+## Features
+
+<a name="general" />
+
+### General features
+
+<a name="try"/>
+
+#### Trying names and pronouns
+
+<a name="names"/>
+
+##### User-set names
+
+<a name="resources"/>
+
+#### Serving categorized resources
+
+<a name="suggestions"/>
+
+#### Allow suggestions
+
+<a name="plural"/>
+
+#### Plural systems
+
+<a name="admin"/>
+
+### Administrative features
+
+<a name="purge"/>
+
+#### Purge channels
+
+<a name="roles"/>
+
+#### Give users roles via reactable messages
 
 <a name="setup"/>
 
