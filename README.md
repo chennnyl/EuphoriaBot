@@ -24,41 +24,109 @@ Welcome to **EuphoriaBot**! Outlined below are the procedures for installation/m
 
 ## Features
 
+This section of the guide will outline the various commands of EuphoriaBot as well as their mechanisms of action, if pertinent to explain. A more concise version of this section may be obtained via the `!help` command.
 <a name="general" />
 
 ### General features
 
+This section describes the commands and features available to all users.
 <a name="try"/>
 
 #### Trying names and pronouns
+
+The chief reason EuphoriaBot was constructed was the ability for users to request the bot call them by a chosen name and set of pronouns. The command users may use to interface with the bot in this manner is `!np`, whose syntax is outlined here:
+```
+!np <"<pronoun set 1 [-p]> [pronoun set 2 [-p]] [pronoun set 3 [-p]]..."> ["<name 1> [name 2]..."]
+```
+The command is blocked out by `!np`, `"pronouns"`, and `"names"`, with the latter two blocks being separately quoted. Each set of pronouns must be in the format of `nominative case/objective case/genitive case`, such as `he/him/his` or `they/them/their`. Some sets of pronouns (such as `they/them/their`) are grammatically plural -- in these cases, the optional flag `-p` is added to the end of the set of pronouns. Some examples of pronoun sets are illustrated below:
+
+| Pronoun set/common usage | Nom | Obj  | Gen   | `!np` usage                |
+| ------------------------ | --- | ---- | ----- | -------------------------- | 
+| he/him/his               | he  | him  | his   | `!np "he/him/his"`         |
+| she/her/hers             | she | her  | her   | `!np "she/her/her"`        | 
+| they/them/theirs         | they| them | their | `!np "they/them/their -p"` |
+
+Note that the -s on the end of genitive pronouns such as "hers" and "theirs" is omitted when using `!np`. For proper display, it's important users are made aware of this, either by advising them to carefully read the output of `!help np` or by simply reminding them of this fact.
+
+A set of names delineated by spaces is also entirely optional -- if it is not provided, the bot will first check `usernames.json` to see if the user has registered a name/set of names (see below), and if they have not, it will use their display name/server nickname.
+
+The sentences the bot will send are randomly picked from `sentences.txt`, which can be extended or modified according to server needs. Each is provided as an f-string kept on its own line. Note the formatting used in each: method calls to `nick()`, `nom()`, `obj()`, `gen()`, and `nom_verb()` are made. `nom_verb()` may be passed a *simple* verb as a string, and the bot will append an 's' if the appropriate pronoun is singular, and omit it otherwise.
 
 <a name="names"/>
 
 ##### User-set names
 
+Users may also register a custom name/set of names using the `!name` command, whose syntax is simple, almost a subset of that of `!np`:
+```
+!name ["<name 1> [name 2]..."]
+```
+The name parameters are optional -- if omitted, the bot will fetch the user's stored name(s) from `usernames.json` and display them to the user. Otherwise, it will update the user's value in `usernames.json` to match the name(s) provided as parameters.
+
 <a name="resources"/>
 
 #### Serving categorized resources
+
+The default function of `!resources` is to serve users links and phone numbers for organizations and services catered to members of the LGBTQ+ community. The syntax of the command is as follows:
+```
+!resources [category]
+```
+If the `category` parameter is omitted, a list of categories (the keys in `resources.json`) will be provided to the user.
+It should be noted that the functionality of this command is fully malleable: The resources to be served to the user are stored in `resources.json` as key:value pairs corresponding to `category:string`. Thus, any feasible combination of resources may be placed in `resources.json`. It is important to note, however, that if you choose to diverge from the default set of resources, the help string for the command and its description provided by `!help` should be modified in turn.
 
 <a name="suggestions"/>
 
 #### Allow suggestions
 
+The `!suggest` command is very simple, as is its syntax.
+```
+!suggest "<suggestion>"
+```
+The suggestion must consist of at least two words and be more than 15 characters in length. The content of the message, as well as the user who called it, will be sent via DM to the user whose ID is specified by the CREATORID environment variable (see [Setting up your bot's environment](#envsetup)). To suppress this functionality, set the CREATORID environment variable to an arbitrary number (try `100000000000000000`)
+
 <a name="plural"/>
 
 #### Plural systems
+
+This is the most complex feature EuphoriaBot has to offer. If you are looking for a more robust, ergonomic, and overall *better* implementation of this functionality, I advise you to look towards the bot [PluralKit](pluralkit.me). If you would rather stick to a simpler implementation or simply would rather not have too many bots on your server, feel free to continue.
+This feature of EuphoriaBot implements an automatic message proxying system for users possessing or in want of a *system*, a term used in classifying [disassociative identity disorder](en.wikipedia.org/wiki/Disassociative_identity_disorder), but whose implementation has uses for others, such as roleplayers and cosplayers. Essentially, users are able to create one or more additional identities under which to send messages while remaining under only one account; these identities can have unique profile pictures and usernames, and are activated when the bot identifies user-defined prefixes/postfixes in a message sent to a channel. This functionality in EuphoriaBot is accessed via the `!plural` command, which has several subcommands, whose various syntaxes are listed below.
+
+`!plural add "<name>"`: Add a new member (also called an alter) to the user's system, with the default pre/postfixes "{" and "}"
+`!plural delete "<name>"`: Remove a member from the user's system
+`!plural list`: List the members in a user's system
+`!plural edit "<name>" <name|prefix|postfix|avatar> "<value>"`: Edit an attribute of a system's member. `avatar` refers to a URL leading to an image to be used as the member's profile picture
+Plurals for each user are stored in `plurals.json` in a fairly self-explanatory format.
+
+The plural system works by creating a webhook for the channel in which a member is invoked, echoing the queried message (sans pre/postfixes) under the banner of the member by making a POST request to the webhook, and deleting the original message.
 
 <a name="admin"/>
 
 ### Administrative features
 
+These are features available only to users with pertinent permissions (insofar as managing messages or roles).
+
 <a name="purge"/>
 
 #### Purge channels
 
+This is arguably the simplest command EuphoriaBot has to offer. Simply invoke the command `!purge` like so:
+```
+!purge
+```
+All messages in the channel will be deleted. This behavior can, at times, be quite slow and buggy, despite making only one API call: use with caution.
+
 <a name="roles"/>
 
 #### Give users roles via reactable messages
+
+Oftentimes it is useful for users to be able to assign themselves certain vanity roles by simply reacting to a message. This functionality is possible via the twin commands `!rrole` and `!r`. `!rrole` serves to make associations between server roles and the emoji reactions used to assign them. Its syntax is as follows:
+```
+!rrole [<<emoji> "<role>"> [<emoji> "<role>"]...]
+```
+Where an indefinite number of pairs of emoji and roles may be provided. If that number is zero, a list of the current associations (stored in `roles.json`) will be displayed. Once the entirety of the associations are made, you may then call `!r`, whose syntax is as follows:
+```
+!r "<message>"
+```
+This message must contain, somewhere, the word "react" so the bot may detect reactions added/removed to it. This message should contain a list of the roles users can obtain and the appropriate reactions in order to be useful. If the list of associations is at any point modified, it is wise to call `!r` again, as the message is immutable once sent. Once called, the bot will remove the message used to call it for display purposes.
 
 <a name="setup"/>
 
@@ -105,7 +173,7 @@ Ideally, this is run as a background service (I personally run it as a service o
 This section of the guide is optional -- running the bot as a background service, however, is a great asset if you're able to run a Linux server and can save a great deal of headache. Begin by creating the service file:
 
 `$ sudo nano /etc/systemd/system/dbot.service`
-And paste in the following code:
+and paste in the following code:
 ```
 [Unit]
 Description=EuphoriaBot Discord bot
