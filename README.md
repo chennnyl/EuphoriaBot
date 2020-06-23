@@ -140,6 +140,7 @@ Where an indefinite number of pairs of emoji and roles may be provided. If that 
 This message must contain, somewhere, the word "react" so the bot may detect reactions added/removed to it. This message should contain a list of the roles users can obtain and the appropriate reactions in order to be useful. If the list of associations is at any point modified, it is wise to call `!r` again, as the message is immutable once sent. Once called, the bot will remove the message used to call it for display purposes.
 
 ![!r and !rrole calls](https://imgur.com/g6Mj3im.png)
+
 Note that the `!r` call was automatically deleted by the bot.
 
 <a name="setup"/>
