@@ -53,7 +53,7 @@ A set of names delineated by spaces is also entirely optional -- if it is not pr
 
 The sentences the bot will send are randomly picked from `sentences.txt`, which can be extended or modified according to server needs. Each is provided as an f-string kept on its own line. Note the formatting used in each: method calls to `nick()`, `nom()`, `obj()`, `gen()`, and `nom_verb()` are made. `nom_verb()` may be passed a *simple* verb as a string, and the bot will append an 's' if the appropriate pronoun is singular, and omit it otherwise.
 
-![!np call](https://imgur.com/9qcCyEX)
+![!np call](https://imgur.com/9qcCyEX.png)
 
 <a name="names"/>
 
@@ -65,7 +65,7 @@ Users may also register a custom name/set of names using the `!name` command, wh
 ```
 The name parameters are optional -- if omitted, the bot will fetch the user's stored name(s) from `usernames.json` and display them to the user. Otherwise, it will update the user's value in `usernames.json` to match the name(s) provided as parameters.
 
-![!name call](https://imgur.com/0CFCh18)
+![!name call](https://imgur.com/0CFCh18.png)
 
 <a name="resources"/>
 
@@ -78,7 +78,7 @@ The default function of `!resources` is to serve users links and phone numbers f
 If the `category` parameter is omitted, a list of categories (the keys in `resources.json`) will be provided to the user.
 It should be noted that the functionality of this command is fully malleable: The resources to be served to the user are stored in `resources.json` as key:value pairs corresponding to `category:string`. Thus, any feasible combination of resources may be placed in `resources.json`. It is important to note, however, that if you choose to diverge from the default set of resources, the help string for the command and its description provided by `!help` should be modified in turn.
 
-![!resources call](https://imgur.com/rPQe650)
+![!resources call](https://imgur.com/rPQe650.png)
 
 <a name="suggestions"/>
 
@@ -90,7 +90,7 @@ The `!suggest` command is very simple, as is its syntax.
 ```
 The suggestion must consist of at least two words and be more than 15 characters in length. The content of the message, as well as the user who called it, will be sent via DM to the user whose ID is specified by the CREATORID environment variable (see [Setting up your bot's environment](#envsetup)). To suppress this functionality, set the CREATORID environment variable to an arbitrary number (try `100000000000000000`)
 
-![!suggest call](https://imgur.com/AI65Bsk)
+![!suggest call](https://imgur.com/AI65Bsk.png)
 
 <a name="plural"/>
 
@@ -107,7 +107,7 @@ Plurals for each user are stored in `plurals.json` in a fairly self-explanatory 
 
 The plural system works by creating a webhook for the channel in which a member is invoked, echoing the queried message (sans pre/postfixes) under the banner of the member by making a POST request to the webhook, and deleting the original message.
 
-![!plural calls](https://imgur.com/hrWpz7o)
+![!plural calls](https://imgur.com/hrWpz7o.png)
 
 <a name="admin"/>
 
@@ -139,7 +139,7 @@ Where an indefinite number of pairs of emoji and roles may be provided. If that 
 ```
 This message must contain, somewhere, the word "react" so the bot may detect reactions added/removed to it. This message should contain a list of the roles users can obtain and the appropriate reactions in order to be useful. If the list of associations is at any point modified, it is wise to call `!r` again, as the message is immutable once sent. Once called, the bot will remove the message used to call it for display purposes.
 
-![!r and !rrole calls](https://imgur.com/g6Mj3im)
+![!r and !rrole calls](https://imgur.com/g6Mj3im.png)
 Note that the `!r` call was automatically deleted by the bot.
 
 <a name="setup"/>
