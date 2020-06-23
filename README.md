@@ -7,9 +7,10 @@ Welcome to **EuphoriaBot**! Outlined below are the procedures for installation/m
 ### Setting up a Discord Application
 
 Head to the [Discord Developer Portal](https://discord.com/developers/applications) and create a new application. Give it a fun name, something like EuphoriaClone.
-[Application page](https://i.imgur.com/MUvtCSD.png)
+![Application page](https://i.imgur.com/MUvtCSD.png)
 Make a note of the Client ID. This along, with a token for your bot and your own Discord ID, will go into a configuration file used to connect to the Discord API.
 Next, go to the Bot tab of the Developer Portal and select "Add Bot." Give it a name and optionally upload a profile picture (the included nbheart.png, perhaps?). Under the "Token" section, make note also of the token for your bot. This is all the setup you need on Discord's end of things.
+![Bot tab](https://i.imgur.com/xPnm9C6.png)
 
 ### Setting up your bot's environment
 This guide assumes your system has Python installed, at least version 3.6.9.
