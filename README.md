@@ -37,7 +37,7 @@ This section describes the commands and features available to all users.
 
 The chief reason EuphoriaBot was constructed was the ability for users to request the bot call them by a chosen name and set of pronouns. The command users may use to interface with the bot in this manner is `!np`, whose syntax is outlined here:
 ```
-!np <"<pronoun set 1 [-p]> [pronoun set 2 [-p]] [pronoun set 3 [-p]]..."> ["<name 1> [name 2]..."]
+!np "<pronoun set 1 [-p]> [pronoun set 2 [-p]] [pronoun set 3 [-p]]..." ["<name 1> [name 2]..."]
 ```
 The command is blocked out by `!np`, `"pronouns"`, and `"names"`, with the latter two blocks being separately quoted. Each set of pronouns must be in the format of `nominative case/objective case/genitive case`, such as `he/him/his` or `they/them/their`. Some sets of pronouns (such as `they/them/their`) are grammatically plural -- in these cases, the optional flag `-p` is added to the end of the set of pronouns. Some examples of pronoun sets are illustrated below:
 
@@ -61,7 +61,7 @@ The sentences the bot will send are randomly picked from `sentences.txt`, which 
 
 Users may also register a custom name/set of names using the `!name` command, whose syntax is simple, almost a subset of that of `!np`:
 ```
-!name ["<name 1> [name 2]..."]
+!name "[name 1] [name 2]..."
 ```
 The name parameters are optional -- if omitted, the bot will fetch the user's stored name(s) from `usernames.json` and display them to the user. Otherwise, it will update the user's value in `usernames.json` to match the name(s) provided as parameters.
 
