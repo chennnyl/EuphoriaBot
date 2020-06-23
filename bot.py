@@ -406,7 +406,7 @@ async def on_raw_reaction_add(payload): #process emoji
 async def on_raw_reaction_remove(payload): #process emoji
 	emoji, guildid = payload.emoji, payload.guild_id
 	user, message =  bot.get_guild(guildid).get_member(payload.user_id), await bot.get_channel(payload.channel_id).fetch_message(payload.message_id)
-	if message.author.id == 722194825901899847 and "REACT" in message.content.upper():
+	if message.author.id == BOTID and "REACT" in message.content.upper():
 		with open("roles.json") as roles:
 			roledat = json.load(roles)
 			if str(guildid) in roledat:
