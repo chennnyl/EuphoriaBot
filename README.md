@@ -218,8 +218,7 @@ BOTID=
 ```
 
 You should now invite the bot to a server. You can generate a link to invite the bot to a server very easily; simply use this template:
-https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID_HERE&permissions=805644288&scope=bot
-and replace "CLIENT_ID_HERE" with the same value you placed in the BOTID field of the `.env` file.
+https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID_HERE&permissions=8&scope=bot and replace "CLIENT_ID_HERE" with the same value you placed in the BOTID field of the `.env` file.
 
 Once the bot is in the server(s) you want it in, you can start the bot!
 Ideally, this is run as a background service (I personally run it as a service on an Ubuntu server), but what also works is to simply run `bot.py` with Python. With that, you're good to go! You can make finer changes by modifying the `bot.py` file or add custom resources to be used by `!resources` by modifying the `resources.json` file.
