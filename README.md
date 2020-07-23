@@ -12,7 +12,9 @@ Welcome to **EuphoriaBot**! Outlined below are the procedures for installation/m
         + [Plural systems](#plural)
     + [Administrative features](#admin)
         + [Purge channels](#purge)
+            + [Automatic purges](#autopurge)
         + [Give users roles via reactable messages](#roles)
+        + [Server-wide settings](#settings)
         
 2. [Setup](#setup)
     + [A quick note](#aquicknote)
@@ -129,6 +131,18 @@ This is arguably the simplest command EuphoriaBot has to offer. Simply invoke th
 ```
 All messages in the channel will be deleted. This behavior can, at times, be quite slow and buggy, despite making only one API call: use with caution.
 
+<a name="autopurge"/>
+
+##### Automatic purges
+
+You can set up automatic purges of channels equally simply: simply use the `!addpurge` command:
+```
+!addpurge [days]
+```
+Where `[days]` is a number of days after which the channel will automatically clear itself; decimal values may also be input. You may check the remaining time until a channel purges in seconds via `!purget`:
+
+![!purget call](https://i.imgur.com/k4xXHI5.png)
+
 <a name="roles"/>
 
 #### Give users roles via reactable messages
@@ -146,6 +160,23 @@ This message must contain, somewhere, the word "react" so the bot may detect rea
 ![!r and !rrole calls](https://imgur.com/g6Mj3im.png)
 
 Note that the `!r` call was automatically deleted by the bot.
+
+<a name="settings"/>
+
+#### Server-wide settings
+
+You may set global settings for your server via the `!setting` command. As of now, the available settings are expressed in the syntax as follows:
+```
+!setting [joinRestrict|joinMessage] [value]
+```
+| Setting        | Acceptable values             | Role                                              |
+| -------------- | ----------------------------- | ------------------------------------------------- |
+| *joinRestrict* | TRUE, FALSE                   | Assign a role upon members joining\*              |
+| *joinMessage*  | Any string <= 2000 characters | Send a message to new members upon joining via DM |
+
+\* As of now, this setting requires very specific input and circumstances and is yet to be reworked. Refrain from using.
+
+![!setting example](https://i.imgur.com/9wNsnCw.png)
 
 <a name="setup"/>
 
