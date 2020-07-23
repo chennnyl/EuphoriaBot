@@ -210,6 +210,13 @@ As provided in the repository, the bot requires very minor tweaks in order to ge
 + CREATORID will be your own Discord ID. You can acquire this following [this guide](https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-).
 + BOTID will be the Client ID you copy from the General Information tab of the Developer Portal.
 
+*Note: `.env` may be hidden by your operating system. Make sure you're able to view hidden files. If you do not have this file (didn't see it in the .zip?), here is a template:*
+```
+DISCORD_TOKEN=
+CREATORID=
+BOTID=
+```
+
 You should now invite the bot to a server. You can generate a link to invite the bot to a server very easily; simply use this template:
 https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID_HERE&permissions=805644288&scope=bot
 and replace "CLIENT_ID_HERE" with the same value you placed in the BOTID field of the `.env` file.
