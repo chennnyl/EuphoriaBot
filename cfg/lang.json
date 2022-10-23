@@ -1,0 +1,215 @@
+{
+	"version":{
+		"en":"\"(v1.2.1)\""
+	},
+	"help":{
+		"help":{
+			"en":"f\"Hi! I'm EuphoriaBot, a bot written by user Lynne designed to help users try new names and pronouns, as well as other functions! Here's a brief rundown of how to use me!\\n**Usage**\\nMy commands are: {getlang('help.commlist')} You can find out more by typing ```!help <command>```or simply ```!help``` to display this screen. For a more comprehensive overview of my functions, see the GitHub page at https://github.com/Spirati/EuphoriaBot/blob/master/README.md.\\nGood luck, and remember, **you are valid!** <:enbyheart:685168658582077471> :heart: \\n\\n*P.S.: I'm always looking for improvement, please use !suggest if there's anything you'd like to see added!*\""
+		},
+		"commlist":{
+			"en":"\"\\n**Available to all**```css\\n[!help]: General help page\\n[!lang]: Change display language\\n[!name]: View and set a custom name the bot uses\\n[!np]: Try out names/pronouns\\n[!plural]: Modify members of a plural system (see help page)\\n[!resources]: List various LGBTQ+ resources\\n[!suggest]: Make suggestions to improve the bot```**Moderator Only**```css\\n[!addpurge]: Add a scheduled purging of channels\\n[!purge]: Clear the messages from a channel\\n[!purget]: Check how long a channel has left until purge\\n[!r]: Have the bot create a message users can react to to get roles\\n[!rrole]: Manage emoji/role associations for !r\\n[!setting]: Modify global server settings```\""
+		},
+		"name":{
+			"en":"'**!name Usage**```!name```to display your current name (if applicable) or ```!name delete``` to delete the current name entry or ```!name <your-name>```to set your name; you can set multiple names by quoting everything and putting spaces between each name; e.x. ```!name \"Lynne Ema\"```'"
+		},
+		"np":{
+			"en":"\"**!np Usage:**```!np '<pronouns>' '[name]'```where a set of pronouns in quotes is required, while a name is optional (it'll use the name(s) set with !name, if it applicable, if not it'll use your server nick); if using multiple names, quotes are also required. Pronouns *must* include a set of three words like so:\\n```!np 'he/him/his'``` or ```!np 'she/her/her'```Pronouns that are grammatically plural, like they/them/their, can be indicated by putting '-p' at the end of the pronouns, like so:\\n```!np 'they/them/their -p' Lynne```\\nYou can try out several sets of pronouns or names at once!```!np 'they/them/their -p she/her/her' 'Lynne Ema'``` Finally, *make sure you omit the -s* in possessive pronouns that have it; e.x. 'they/them/*their* -p' instead of 'they/them/*theirs* -p'\\nAnd that's all there is to it! Good luck, and remember, **you are valid!** <:enbyheart:685168658582077471> :heart:\""
+		},
+		"plural":{
+			"en":"\"**!plural Usage:**```!plural <add|delete|edit|list> <arguments>```Welcome to the **most complex command in the bot**! This allows you to interface with EuphoriaBot in order to automatically send your messages under several different names. The group of names you can send messages under is known as your **system**, and an individual name is known as a **member**. The first argument of !plural is the *subcommand* you want to use: each has its own special syntax, outlined below.```!plural add <name>```This command adds a member to your system with default specifications.```!plural delete <name>```This command removes a member from your system.```!plural edit <name> <name|avatar|prefix|postfix> <value>```This command lets you change the various attributes of a member of your system. **name** is the display name of the member, **avatar** is a URL to an image the member uses as its profile picture (you can leave blank for the default Discord profile picture), **prefix** is the string placed *before* a message to indicate the member, and **postfix** is the string placed *after* a message to inficate the member. It is recommended that the value (and the name, if longer than one word) is placed in quotes, like so:```!plural edit LynneA name 'Lynne's First'``````!plural list```This is the simplest command -- it provides a card that lists the current members of your system, their message formats, and the links to their profile pictures.\""
+		},
+		"suggest":{
+			"en":"\"**!suggest Usage:**```!suggest '<suggestion>'```Your feedback will be sent via DM to creator Lynne!\""
+		},
+		"lang":{
+			"en":"\"**!lang Usage:**```!lang <langcode>```to set your display language for EuphoriaBot. Current supported codes are: ```es en de```English (en) is the only fully supported one: if you would like to aid in the translation effort, contact <@365506149619073025>!\""
+		},
+		"resource":{
+			"en":"\"**!resources Usage:**```!resources```for a list of categories and```!resources [category]```for the appropriate category. This command displays some links and resources for LGBTQ youth.\""
+		},
+		"addpurge":{
+			"en":"\"**!addpurge Usage:**```!addpurge <days>```to make a channel reset itself after a certain amount of days. Fractional values may be added for minutes/hours, etc.\\n**Warning: This will purge the channel you are adding to!**\""
+		},
+		"purge":{
+			"en":"\"**!purge Usage:**```!purge```to clear the messages from a channel.\""
+		},
+		"purget":{
+			"en":"\"**!purget Usage:**```!purget```to see how long (in seconds) until a channel clears itself.\""
+		},
+		"r":{
+			"en":"\"**!r Usage:**```!r 'string'```to specify a string users can react to in order to get roles -- this string must somewhere contain the word 'react!'\""
+		},
+		"rrole":{
+			"en":"\"**!rrole Usage:**```!rrole <emoji> 'role' <emoji> 'role'...<emoji> 'role'```to tell the bot which emoji correspond to which roles when creating a message users can react to with !r```!rrole```to see the current emoji/role pairs the bot has registered\""
+		},
+		"setting":{
+			"en":"\"**!setting Usage:**```!setting <setting> [value]```to modify a globals server setting; omit the value argument to see the current value. These are the values you can pass:\\n**joinMessage**: [String] - Send users a message upon joining; set to an empty string ('') to disable\""
+		}
+	},
+	"success":{
+		"lang":{
+			"en":"\"I've set your language to English!\"",
+			"de":"\"Ich habe deine Sprache auf Deutsch eingestellt!\""
+		},
+		"setting":{
+			"currentval":{
+				"en":"\"The current value is: \""
+			},
+			"short":{
+				"en":"\":white_check_mark: Settings modified successfully!\""
+			}
+		},
+		"name":{
+			"current":{
+				"en":"\"Your current names are: \""
+			},
+			"set":{
+				"en":"\"Okay, I've set your names! They are: \""
+			},
+			"delete":{
+				"en":"\"Okay, I've deleted my name(s) for you!\""
+			}
+		},
+		"resource":{
+			"catlisting":{
+				"en":"\"I have a handful of resource categories to choose from. They are:\\n\""
+			}
+		},
+		"suggest":{
+			"sent":{
+				"en":"\"Your feedback has been sent!\""
+			}
+		},
+		"plural":{
+			"add":{
+				"en":"f\"Created a new member with default format of {{Message}}\""
+			},
+			"delete":{
+				"en":"f\"Deleted from your system!\""
+			},
+			"edit":{
+				"en":"f\"Member modified successfully!\""
+			},
+			"list":{
+				"title":{
+					"en":"f\"{context.author.display_name}'s System\""
+				}
+			}
+		},
+		"rrole":{
+			"pairs":{
+				"en":"\"Current role pairs:\\n\""
+			}
+		}
+	},
+	"error":{
+		"priv":{
+			"en":"\"You don't have sufficient permissions to do that!\"",
+			"es":"\"¡No tienes los permisos para hacer eso!\"",
+			"de":"\"Sie haben die ausreichenden Berechtigung nicht, das zu tun!\""
+		},
+		"missinglang":{
+			"en":"\"I don't support that language code!\""
+		},
+		"np":{
+			"pronounparse":{
+				"en":"\"I had difficulty parsing those pronouns. Try again?\""
+			}
+		},
+		"name":{
+			"noname":{
+				"en":"\"I don't have a name for you yet; set it with ```!name '<your-name>'```\""
+			}
+		},
+		"resource":{
+			"noresource":{
+				"en":"\"I'm sorry, I don't have that category in my resources. Try again?\""
+			}
+		},
+		"suggest":{
+			"nosuggestion":{
+				"en":"\"You must include a suggestion to send!\""
+			},
+			"length":{
+				"en":"\"That seems awfully short... Make sure you put your suggestion in quotes!\""
+			}
+		},
+		"plural":{
+			"add":{
+				"display":{
+					"en":"\"You need to supply the display name of the member to add!\""
+				},
+				"existingmember":{
+					"en":"f\"You already have a member with that name!\""
+				}
+			},
+			"delete":{
+				"display":{
+					"en":"\"You need to supply the display name of the member to delete!\""
+				},
+				"nomember":{
+					"en":"\"You don't have any members in your system!\""
+				},
+				"badmember":{
+					"en":"f\"That isn't a member of your system!\""
+				}
+			},
+			"edit":{
+				"badattribute":{
+					"en":"f\"I don't recognize that attribute\""
+				},
+				"badprefix":{
+					"en":"\"You can't use ! to start your proxy format!\""
+				},
+				"malformed":{
+					"en":"\"You have to supply a member and attribute to edit as well as the new value!\""
+				},
+				"nomember":{
+					"en":"\"You don't have any members to edit!\""
+				}
+			},
+			"list":{
+				"nosystem":{
+					"en":"\"You don't have a system set up!\""
+				}
+			}
+		},
+		"purget":{
+			"notfound":{
+				"en":"\"This channel doesn't have an automatic purge set up!\""
+			}
+		},
+		"setting":{
+			"nosetting":{
+				"en":"\"I don't recognize that setting, try again?\""
+			},
+			"badvalue":{
+				"en":"\"That isn't a valid input for that setting!\""
+			},
+			"settingreq":{
+				"joinRestrict":{
+					"en":"\"You don't have both a Newbie role and a channel named landing-zone!\""
+				},
+				"joinMessage":{
+					"en":"\"That's too long! Make sure your message is under 2000 characters.\""
+				}
+			}
+		},
+		"rrole":{
+			"noreaction":{
+				"en":"\"This server doesn't have any assigned reactions!\""
+			},
+			"badrole":{
+				"en":"\"Unrecognized role \""
+			},
+			"malformed":{
+				"en":"\"You need to have both an emoji and a role name each time!\""
+			}
+		},
+		"r":{
+			"malformed":{
+				"en":"\"Bad message format! Include the word 'react!'\""
+			}
+		}
+	}
+}
